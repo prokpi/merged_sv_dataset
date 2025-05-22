@@ -51,9 +51,7 @@ This script executes Mosdepth with following parameters:
 --mapq 30: Filters alignments with a minimum mapping quality of 30.
 --fasta "$REFERENCE_FASTA": Specifies the reference genome.
 ```
-
-Output:
-- Coverage statistics for each genomic region, including median coverage, are generated in the specified output directory.
+Output: Coverage statistics for each genomic region, including median coverage, are generated in the specified output directory.
 
 
 
