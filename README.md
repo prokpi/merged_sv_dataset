@@ -38,8 +38,10 @@ GC%: The percentage of guanine (G) and cytosine (C) nucleotides.
 ```
 
 ## 2. Mosdepth (coverage)
-- This script uses `.bed` files produced by `run_gc_content.sh`
-- 
+Input requirements:
+- `.bed` files produced by `run_gc_content.sh` with genomic regions 
+- CRAM files containing aligned sequencing reads for each sample.
+- Reference FASTA file for the genome assembly (GRCh38)
 
 
 
