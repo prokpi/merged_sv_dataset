@@ -22,7 +22,7 @@ conda activate mypython
 conda activate pandas
 ```
 
-## GC content
+## 1. GC content
 - Files to be processed are listed here: `ndd2024.list`
 - Each file is VCF file
 
@@ -30,7 +30,6 @@ bcftools query: creates `.bed` file containing structural variants in the tabula
 ```
 <CHROM> <POS0> <END> <SVTYPE> <SVLEN>
 ```
-
 bedtools query: calculates **GC** content for each genomic region specified in the `.bed` file, output:
 ```
 #1-based_Start: The start position (1-based).
@@ -38,6 +37,9 @@ bedtools query: calculates **GC** content for each genomic region specified in t
 GC%: The percentage of guanine (G) and cytosine (C) nucleotides.
 ```
 
+## 2. Mosdepth (coverage)
+- This script uses `.bed` files produced by `run_gc_content.sh`
+- 
 
 
 
