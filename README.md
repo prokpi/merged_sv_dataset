@@ -16,13 +16,13 @@ Machine_Learning/
 │   └── water_quality_analysis.ipynb   # The code that was ran in Google Colab
 └── requirements.txt             # List of dependencies (for installing via pip)
 ```
-##Activate packages:
+## Activate packages:
 ```
 conda activate mypython
 conda activate pandas
 ```
 
-##GC content
+## GC content
 - Files to be processed are listed here: "ndd2024.list"
 - Each file is VCF file
 
