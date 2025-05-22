@@ -23,7 +23,7 @@ conda activate pandas
 ```
 
 ## GC content
-- Files to be processed are listed here: "ndd2024.list"
+- Files to be processed are listed here: `ndd2024.list`
 - Each file is VCF file
 
 bcftools query: created `.bed` file containing structural variants in the tabular format with the following columns:
