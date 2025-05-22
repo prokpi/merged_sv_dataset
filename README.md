@@ -21,6 +21,11 @@ merged_sv_dataset/
 conda activate mypython
 conda activate pandas
 ```
+## Submit to slurm:
+```
+chmod +x 'filename.sh'
+sbatch 'filename.sh'
+```
 
 ## 1. GC content
 - Files to be processed are listed here: `ndd2024.list`
