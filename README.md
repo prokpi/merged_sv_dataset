@@ -43,6 +43,19 @@ Input requirements:
 - CRAM files containing aligned sequencing reads for each sample.
 - Reference FASTA file for the genome assembly (GRCh38)
 
+This script executes Mosdepth with following parameters:
+```
+--threads 20: Uses 20 threads.
+--by "$REGION_BED": Specifies BED file with genomic regions of interest.
+--use-median: Calculates median coverage.
+--mapq 30: Filters alignments with a minimum mapping quality of 30.
+--fasta "$REFERENCE_FASTA": Specifies the reference genome.
+```
+
+Output:
+- Coverage statistics for each genomic region, including median coverage, are generated in the specified output directory.
+
+
 
 
 
