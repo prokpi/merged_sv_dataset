@@ -4,7 +4,7 @@ This repository contains scripts to process genomic VCF files, calculate GC cont
 ## Project Structure
 
 ```
-Machine_Learning/
+merged_sv_dataset/
 │
 ├── README.md                    
 ├── files/                        
