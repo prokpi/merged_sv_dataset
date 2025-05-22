@@ -16,12 +16,14 @@ merged_sv_dataset/
 │   └── water_quality_analysis.ipynb   # The code that was ran in Google Colab
 └── requirements.txt             # List of dependencies (for installing via pip)
 ```
-## Activate packages:
+## Requirements
+- Packages that will need to be activated:
 ```
 conda activate mypython
 conda activate pandas
+......
 ```
-## Submit to slurm:
+- Submitting `.sh' files to slurm:
 ```
 chmod +x 'filename.sh'
 sbatch 'filename.sh'
