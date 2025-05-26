@@ -11,25 +11,19 @@ merged_sv_dataset/
 │   └── run_gc_content.sh        # GC content
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── conc.py                  # concatenating 
-│   └── slurm.sh                 # run conc.py
-├── notebook/                   
-│   └── water_quality_analysis.ipynb   # The code that was ran in Google Colab
-└── requirements.txt             # List of dependencies (for installing via pip)
+│   └── slurm.sh                 # run conc.py                  
+└──    
 ```
-## Requirements
-- Packages that will need to be activated:
+
+## 1. Create initial table 
 ```
 conda activate mypython
 conda activate pandas
-......
-```
-- Submitting `.sh' files to slurm:
-```
-chmod +x 'filename.sh'
-sbatch 'filename.sh'
+chmod +x 'process_vcfs.sh'
+sbatch 'process_vcfs.sh'
 ```
 
-## 1. GC content
+## 2. GC content
 - Files to be processed are listed here: `ndd2024.list`
 - Each file is VCF file
 
@@ -44,7 +38,7 @@ bedtools query: calculates **GC** content for each genomic region specified in t
 GC%: The percentage of guanine (G) and cytosine (C) nucleotides.
 ```
 
-## 2. Mosdepth (coverage)
+## 3. Mosdepth (coverage)
 Input requirements:
 - `.bed` files produced by `run_gc_content.sh` with genomic regions 
 - CRAM files containing aligned sequencing reads for each sample.
