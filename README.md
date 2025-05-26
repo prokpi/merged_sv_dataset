@@ -54,6 +54,11 @@ This script executes Mosdepth with following parameters:
 ```
 Output: Coverage statistics for each genomic region, including median coverage, are generated in the specified output directory.
 
+## 4. Final BED file
+Produce bed file for each sample:
+```
+sbatch bed_file.sh
+```
 
 
 
