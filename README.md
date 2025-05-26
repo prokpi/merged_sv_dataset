@@ -7,7 +7,9 @@ This repository contains scripts to process genomic VCF files, calculate GC cont
 merged_sv_dataset/
 │
 ├── README.md                    
-├── files/                        
+├── files/
+│   └── process_vcfs.py          # initial table
+│   └── process_vcfs.sh          # initisl table                    
 │   └── run_gc_content.sh        # GC content
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── conc.py                  # concatenating 
