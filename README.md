@@ -14,8 +14,7 @@ merged_sv_dataset/
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── bed_file.py              
 │   └── bed_file.sh              # create bed files for each sample
-│   └── merge.sh
-│   └── merge.py                 # merge all bed files
+│  
 └──    
 ```
 
@@ -65,8 +64,9 @@ sbatch bed_file.sh
 ```
 
 ## 5. Merge all bed files into one table:
+In the directory of `.bed` files (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/output_bed)
 ```
-sbatch merge.sh
+cat *.bed >> merged.bed
 ```
 
 
