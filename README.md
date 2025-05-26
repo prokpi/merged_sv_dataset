@@ -9,7 +9,7 @@ merged_sv_dataset/
 ├── README.md                    
 ├── files/
 │   └── process_vcfs.py          # initial table
-│   └── process_vcfs.sh          # initisl table                    
+│   └── process_vcfs.sh          # initial table                    
 │   └── run_gc_content.sh        # GC content
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── conc.py                  # concatenating 
