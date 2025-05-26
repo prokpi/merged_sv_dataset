@@ -8,10 +8,12 @@ merged_sv_dataset/
 │
 ├── README.md                    
 ├── files/
-│   └── process_vcfs.py          # initial table
-│   └── process_vcfs.sh          # initial table                    
+│   └── process_vcfs.py          
+│   └── process_vcfs.sh          # initial table             
 │   └── run_gc_content.sh        # GC content
-│   └── run_cov_mosdepth.sh      # mosdepth              
+│   └── run_cov_mosdepth.sh      # mosdepth
+│   └── bed_file.py              
+│   └── bed_file.sh              # create bed files for each sample
 └──    
 ```
 
