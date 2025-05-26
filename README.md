@@ -64,7 +64,7 @@ Produce bed file for each sample:
 sbatch bed_file.sh
 ```
 
-# 5. Merge all bed files into one table:
+## 5. Merge all bed files into one table:
 ```
 sbatch merge.sh
 ```
