@@ -14,6 +14,8 @@ merged_sv_dataset/
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── bed_file.py              
 │   └── bed_file.sh              # create bed files for each sample
+│   └── merge.sh
+│   └── merge.py                 # merge all bed files
 └──    
 ```
 
