@@ -12,8 +12,8 @@ merged_sv_dataset/
 │   └── process_vcfs.sh          # initial table             
 │   └── run_gc_content.sh        # GC content
 │   └── run_cov_mosdepth.sh      # mosdepth
-│   └── bed_file.py              
-│   └── bed_file.sh              # create bed files for each sample
+│   └── gc_content.sh            # extracting gc values
+│   └── mosdepth_coverage.sh     # extracting mosdepth values
 │  
 └──    
 ```
@@ -57,14 +57,15 @@ This script executes Mosdepth with following parameters:
 ```
 Output: Coverage statistics for each genomic region, including median coverage, are generated in the specified output directory.
 
-## 4. Final BED files
-Produce bed file for each sample:
+## 4. Extracting values for GC content and Mosdepth into a separate TSV files
+Produce files for each sample:
 ```
-sbatch bed_file.sh
+sbatch gc_content.sh
+sbatch mosdepth_coverage.sh
 ```
 
 ## 5. Merge all bed files into one table:
-In the directory of `.bed` files (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/output_bed)
+In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/merged)
 ```
 cat *.bed >> merged.bed
 ```
