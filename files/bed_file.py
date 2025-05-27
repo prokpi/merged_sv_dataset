@@ -9,8 +9,8 @@ def load_bed_file(bed_path, value_col_name):
     df["End"] = df["End"].astype(int)
     df_reduced = df[["Chromosome", "Start", "End", value_col_name]]
     return pr.PyRanges(df_reduced)
+    
 def add_gc_and_coverage(tsv_path, gc_bed_path, coverage_bed_path, output_path):
-    print(f"Processing {tsv_path} ...")
     df = pd.read_csv(tsv_path, sep="\t")
     df_bed = df.rename(columns={"CHROM_CALLER": "Chromosome",
                                "POS_CALLER": "Start",
@@ -36,10 +36,9 @@ def add_gc_and_coverage(tsv_path, gc_bed_path, coverage_bed_path, output_path):
     df["GC_CONTENT"] = df_bed["GC_CONTENT"].values
     df["COVERAGE_MOSDEPTH"] = df_bed["COVERAGE_MOSDEPTH"].values
     df.to_csv(output_path, sep="\t", index=False)
-    print(f"Saved TSV with added GC_CONTENT and COVERAGE_MOSDEPTH columns to: {output_path}")
+
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python update_to_bed.py <input_tsv> <gc_bed> <coverage_bed> <output_tsv>")
         sys.exit(1)
     input_tsv = sys.argv[1]
     gc_bed = sys.argv[2]
