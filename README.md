@@ -64,7 +64,7 @@ sbatch gc_content.sh
 sbatch mosdepth_coverage.sh
 ```
 
-## 5. Merge all bed files into one table:
+## 5. Merge all tsv files into one bed file (with all samples):
 In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/merged)
 ```
 cat *.tsv >> merged.bed
