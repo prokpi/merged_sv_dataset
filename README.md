@@ -14,7 +14,7 @@ merged_sv_dataset/
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── gc_content.sh            # extracting gc values
 │   └── mosdepth_coverage.sh     # extracting mosdepth values
-│  
+│   └── merge_tsv.sh             # merge GC content and Mosdepth results into one file
 └──    
 ```
 
@@ -67,7 +67,7 @@ sbatch mosdepth_coverage.sh
 ## 5. Merge all bed files into one table:
 In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/merged)
 ```
-cat *.bed >> merged.bed
+cat *.tsv >> merged.bed
 ```
 
 
