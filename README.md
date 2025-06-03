@@ -26,7 +26,7 @@ chmod +x 'process_vcfs.sh'
 sbatch 'process_vcfs.sh'
 ```
 
-## 2. GC content
+## 2. GC content `run_gc_content.sh`
 - Files to be processed are listed here: `ndd2024.list`
 - Each file is VCF file
 
@@ -41,7 +41,7 @@ bedtools query: calculates **GC** content for each genomic region specified in t
 GC%: The percentage of guanine (G) and cytosine (C) nucleotides.
 ```
 
-## 3. Mosdepth (coverage)
+## 3. Mosdepth (coverage) `run_cov_mosdepth.sh`
 Input requirements:
 - `.bed` files produced by `run_gc_content.sh` with genomic regions 
 - CRAM files containing aligned sequencing reads for each sample.
