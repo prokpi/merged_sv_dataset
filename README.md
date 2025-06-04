@@ -14,7 +14,7 @@ merged_sv_dataset/
 │   └── run_cov_mosdepth.sh      # mosdepth
 │   └── gc_content.sh            # extracting gc values
 │   └── mosdepth_coverage.sh     # extracting mosdepth values
-│   └── merge_tsv.sh             # merge GC content and Mosdepth results into one file
+│   └── merge_columns.sh         # merge GC content and Mosdepth results with initial table
 └──    
 ```
 
@@ -64,10 +64,16 @@ sbatch gc_content.sh
 sbatch mosdepth_coverage.sh
 ```
 
-## 5. Merge all tsv files into one bed file (with all samples):
-In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/merged)
+## 5. Merge GC and Mosdepth columns with initial table:
+To add extra columns for GC content and Modepth execute this:
 ```
-cat *.tsv >> merged.bed
+sbatch merge_columns.sh
+```
+
+## 6. Merge all .bed files into one bed file (with all samples):
+In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/concatenated)
+```
+cat *.bed >> merged.bed
 ```
 
 
