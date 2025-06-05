@@ -71,7 +71,7 @@ sbatch merge_columns.sh
 ```
 
 ## 6. Merge all .bed files into one bed file (with all samples):
-In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/concatenated)
+In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/merged)
 ```
 cat *.bed >> merged.bed
 ```
