@@ -21,9 +21,6 @@ def load_segmental_duplications(file_path):
     return pr.PyRanges(duplication_data)
  
 def extract_representative_sample(sample_names):
-    for sample in sample_names:
-        if "_30x" in sample:  
-            return sample
     return sample_names[0]  
  
 def process_vcf(vcf_path, repeats, duplications, output_file, output_bed=False):
