@@ -3,7 +3,8 @@ This repository contains scripts to process genomic VCF files, calculate GC cont
 
 # Structure
 - Part 1: Concatenating dataset
-- Part 2: Creating a Dockerfile 
+- Part 2: Creating a Dockerfile
+- Part 3: Nextflow configuration
 
 ```
 merged_sv_dataset/
@@ -20,6 +21,9 @@ merged_sv_dataset/
 │   └── gc_content.sh            # extracting gc values
 │   └── mosdepth_coverage.sh     # extracting mosdepth values
 │   └── merge_columns.sh         # merge GC content and Mosdepth results with initial table
+│   └── Dockerfile
+├── nextflow/
+│   └──    
 └──    
 ```
 
@@ -103,4 +107,9 @@ singularity pull docker://kornelipro/python-packages:latest
 singularity run python-packages_latest.sif
 ```
 
+# Part 3: Nextflow 
+Requirements for publishing pipeline:
+```
+https://nf-co.re/docs/contributing/tutorials/creating_with_nf_core#pipeline-git-repo
+```
 
