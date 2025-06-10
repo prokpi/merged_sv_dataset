@@ -1,12 +1,16 @@
 # merged_sv_dataset
 This repository contains scripts to process genomic VCF files, calculate GC content, Mosdepth coverage and integrate predictions from multiple structural variant callers (Manta, Delly, Smoove). The final output is a consolidated dataset for machine learning, enabling assessment of prediction of structural variations.
 
-## Structure
+# Structure
+- Part 1: Concatenating dataset
+- Part 2: Creating a Dockerfile 
 
 ```
 merged_sv_dataset/
 │
-├── README.md                    
+├── README.md
+│   └── requirements.txt         # process_vcfs.py packages 
+│   └── Dockerfile                    
 ├── files/
 │   └── process_vcfs.py          
 │   └── process_vcfs.sh          # initial table             
@@ -18,7 +22,9 @@ merged_sv_dataset/
 └──    
 ```
 
-## 1. Create initial table 
+# Part 1: Consolidating dataset
+
+### 1. Create initial table 
 ```
 conda activate mypython
 conda activate pandas
@@ -26,7 +32,7 @@ chmod +x 'process_vcfs.sh'
 sbatch 'process_vcfs.sh'
 ```
 
-## 2. GC content `run_gc_content.sh`
+### 2. GC content `run_gc_content.sh`
 - Files to be processed are listed here: `ndd2024.list`
 - Each file is VCF file
 
@@ -41,7 +47,7 @@ bedtools query: calculates **GC** content for each genomic region specified in t
 GC%: The percentage of guanine (G) and cytosine (C) nucleotides.
 ```
 
-## 3. Mosdepth (coverage) `run_cov_mosdepth.sh`
+### 3. Mosdepth (coverage) `run_cov_mosdepth.sh`
 Input requirements:
 - `.bed` files produced by `run_gc_content.sh` with genomic regions 
 - CRAM files containing aligned sequencing reads for each sample.
@@ -57,25 +63,43 @@ This script executes Mosdepth with following parameters:
 ```
 Output: Coverage statistics for each genomic region, including median coverage, are generated in the specified output directory.
 
-## 4. Extracting values for GC content and Mosdepth into a separate TSV files
+### 4. Extracting values for GC content and Mosdepth into a separate TSV files
 Produce files for each sample:
 ```
 sbatch gc_content.sh
 sbatch mosdepth_coverage.sh
 ```
 
-## 5. Merge GC and Mosdepth columns with initial table:
+### 5. Merge GC and Mosdepth columns with initial table:
 To add extra columns for GC content and Modepth execute this:
 ```
 sbatch merge_columns.sh
 ```
 
-## 6. Merge all .bed files into one bed file (with all samples):
+### 6. Merge all .bed files into one bed file (with all samples):
 In the directory of `.bed` file (/shared/work/PI-tommaso.pippucci/RF-WGS/SVs/results/concatenatingfiles/merged)
 ```
 cat *.bed >> merged.bed
 ```
 
+# Part 2: Creating a Dockerfile
+Dockerfile is created (containing `process_vcfs.py` packages) to be pulled using Singularity. 
+```
+#Create a dockerfile:
+docker login
+docker tag python-packages kornelipro/python-packages:latest
 
+#push it
+docker push kornelipro/python-packages:latest
+
+#pull it using Docker:
+docker pull kornelipro/python-packages:latest
+
+#pull it using Singularity:
+singularity pull docker://kornelipro/python-packages:latest
+
+#run Dockerfile using Singularity:
+singularity run python-packages_latest.sif
+```
 
 
