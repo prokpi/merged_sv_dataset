@@ -10,7 +10,8 @@ merged_sv_dataset/
 │
 ├── README.md
 │   └── requirements.txt         # process_vcfs.py packages 
-│   └── Dockerfile                    
+│   └── Dockerfile
+│   └──                  
 ├── files/
 │   └── process_vcfs.py          
 │   └── process_vcfs.sh          # initial table             
