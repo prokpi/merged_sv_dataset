@@ -10,9 +10,9 @@ This repository contains scripts to process genomic VCF files, calculate GC cont
 merged_sv_dataset/
 │
 ├── README.md
+├── docker-build/
 │   └── requirements.txt         # process_vcfs.py packages 
-│   └── Dockerfile
-│   └──                  
+│   └── Dockerfile                
 ├── files/
 │   └── process_vcfs.py          
 │   └── process_vcfs.sh          # initial table             
