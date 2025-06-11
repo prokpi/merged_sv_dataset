@@ -10,9 +10,11 @@ This repository contains scripts to process genomic VCF files, calculate GC cont
 merged_sv_dataset/
 │
 ├── README.md
+│
 ├── docker-build/
 │   └── requirements.txt         # process_vcfs.py packages 
-│   └── Dockerfile                
+│   └── Dockerfile
+│             
 ├── files/
 │   └── process_vcfs.py          
 │   └── process_vcfs.sh          # initial table             
@@ -21,7 +23,7 @@ merged_sv_dataset/
 │   └── gc_content.sh            # extracting gc values
 │   └── mosdepth_coverage.sh     # extracting mosdepth values
 │   └── merge_columns.sh         # merge GC content and Mosdepth results with initial table
-│   └── Dockerfile
+│   
 ├── nextflow/
 │   └──    
 └──    
