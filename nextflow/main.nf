@@ -21,8 +21,8 @@ if (params.help) {
     --sample_alignments_tsv      PATH              Path to a TSV file with two columns: the sample ID and the full (absolute) path to the CRAM file
     --reference_fasta            PATH              Reference genome to which the reads are aligned.
     --singularity_cache          PATH              Path to singularity cache directory
-    --delly_exclude_regions_bed	 PATH		   Path to bad regiosn used from Delly
-    --smoove_exclude_regions_bed PATH		   Path to bed regions used from Smoove
+    --delly_exclude_regions_bed	 PATH		       Path to bed regiosn used from Delly
+    --smoove_exclude_regions_bed PATH		       Path to bed regions used from Smoove
     --expansion_hunter_variant_catalog_json        Path to STR variant catalog file: choose between ExpansionHunter_variant_catalog.json (174k polymorphic loci) or variant_catalog_genes.json (30 known pathogenic loci)
      
     --account_name               NAME              BC+user name
@@ -304,7 +304,7 @@ process SV_COVERAGE_EXTRACT {
 process SV_COVERAGE {
     publishDir "results/$sample_id/", mode: "copy"                              
     input:                                                                      
-    tuple val(sample_id), val(alignment_file), path(sample_sv_bed)
+    tuple val(sample_id), path(vcf_file), path(repeat_masker), path(duplications)
     output:
     path("${sample_id}.sv.regions.bed.gz")                                 
     script:
@@ -338,7 +338,27 @@ process CG_CONTENT {
  
  }
 
+
+process INITIAL_TABLE {
+    publishDir "results/$sample_id/", mode: "copy"                              
+    input:                                                                      
+    tuple val(sample_id), path(vcf_file), path(params.repeat_masker), path(params.duplications)
+    output:
+    path("${sample_id}_processed.tsv")                             
+    script:
+    """
+    python process_vcfs.py \ --repeat_masker $repeat_masker \ --duplications $duplications \ --vcf_file $vcf_file \ --output_file ${sample_id}_processed.tsv
+    """
+    stub:
+    
+    """
+    ${sample_id}_processed.tsv
+    """
+ 
+ }
+
 workflow {
+    // Initial table 
     // Get coverage using Mosdepth 
     COVERAGE(data)
     //cnvpytor(data)
